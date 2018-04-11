@@ -5,7 +5,7 @@
 //   visibilityFilter
 // })
 
-const Reducer = (state = {deductible: "100"}, action) => { console.log('in Reducer',action);
+const Reducer = (state = {deductible: "100"}, action) => { //console.log('in Reducer',action);
   switch (action.type) {
     case 'SETDED':
       return (

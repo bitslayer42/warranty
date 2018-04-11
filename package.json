@@ -10,6 +10,7 @@
     "react-scripts": "1.1.4",
     "redux": "^3.7.2"
   },
+  "homepage" : "http://wax9.com/choose/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

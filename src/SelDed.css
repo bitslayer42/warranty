@@ -19,6 +19,7 @@
   
   .switch-field label {
     float: left;
+    user-select: none;
   }
   
   .switch-field label {

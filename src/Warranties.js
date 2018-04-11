@@ -1,4 +1,4 @@
-let warranty = [
+let Warranties = [
 ["a","5/100","ACP","0","","","1340"],
 ["a","5/100","ACP","100","","","910"],
 ["a","5/100","ACP","200","","","800"],
@@ -1289,4 +1289,4 @@ let warranty = [
 ["h","LMC/C","LP","200","","","8910"]
 ]
 
-export default warranty;
+export default Warranties;
