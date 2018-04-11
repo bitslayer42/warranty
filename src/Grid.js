@@ -3,19 +3,24 @@ import './Grid.css';
 import Warranties from './Warranties';
 // Warranties: [ [Class, Term, Plan, Ded, WooId, Amt,  MSRP ] ]
 //             [ [A,     5/50, PCP,  100, X45,   1000, 2000 ] ]
-
+//             [ [0      1     2     3    4      5     6    ] ]
 class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Warranties: Warranties,
-      
+      Warranties: Warranties,    
     };
   }    
 
-  static getDerivedStateFromProps(nextProps, prevState){
-    return prevState;
+  expandTerm(short){
+    return short.replace('LMCC','Lifetime Maximum Care / Cost')
+                .replace('UMC', 'Unlimited Miles / Cost')
+                .replace('/', ' Years / ')
+                .replace('K', ',000 Miles')
   }
+  // static getDerivedStateFromProps(nextProps, prevState){
+  //   return prevState;
+  // }
 
   render() { 
     return (
@@ -27,9 +32,9 @@ class Grid extends Component {
           .filter(warranty=> warranty[3]===this.props.deductible)
           .map((warranty,ix)=>(
               <tr key={ix}><td>
-                {warranty[1]} 
+                {this.expandTerm(warranty[1])} 
               </td><td style={{textAlign:"right"}}>
-                <a href={"http://wax9.com/example/"+warranty[4]} ><button type="button">${warranty[6]}</button></a>
+                <a href={"http://wax9.com/example/"+warranty[4]} ><button type="button">${warranty[5]}</button></a>
               </td></tr>
             )          
           )}
