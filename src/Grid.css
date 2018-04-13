@@ -1,13 +1,12 @@
-table {
+table.gridtable {
   border-collapse: collapse;
-
 }
-td {
-  border-top:1px solid rgb(121, 119, 119);
-  border-bottom:1px solid rgb(121, 119, 119);
+table.gridtable td {
   font-size:0.9em;
 } 
 button {
+  margin-top: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
   width:100%;
 }
