@@ -64,13 +64,21 @@ class Grid extends Component {
         <div colSpan="2" style={{width:"100%",textAlign:"right",color:"red"}}>Buy it now!</div>
         <table className="gridtable"><tbody>
           {this.state.ChosenWarranties
-            .map((warranty,ix)=>(
-              <tr key={ix}><td>
-                {this.displayTerm(warranty[1])} 
-              </td><td style={{textAlign:"right"}}>
-                <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">${warranty[6]}</button></a>
-              </td></tr>
-            )          
+            .map((warranty,ix)=>{
+                if(warranty[6]!=="0"){
+                return (
+                  <tr key={ix} className="gridtr">
+                  <td>
+                    {this.displayTerm(warranty[1])} 
+                  </td>
+                  <td>
+                    <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">${warranty[6]}</button></a>
+                   </td></tr>)
+                }else{   
+                return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
+                }
+              
+              }          
           )}
         </tbody></table>
       </div>

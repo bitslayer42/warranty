@@ -1,0 +1,23 @@
+
+Run SQL: 
+
+    select * from MakingMopar
+    ORDER BY Class, PlanType, CAST(Ded AS INT),
+    CAST(dbo.NumericPart(LEFT(Term,CHARINDEX('/',Term))) AS INT),  --years
+    CAST(dbo.NumericPart(REPLACE(RIGHT(Term,LEN(Term)-CHARINDEX('/',Term)),'K','')) AS INT)
+
+and copy and paste into text editor.
+
+Replace all tabs with "," (with the quotes)
+Replace start of line with ["
+Replace end of line with "],
+
+Add as first row of file: 
+    let Warranties = [
+
+Add at end of file:
+    ]
+    export default Warranties;
+
+Save as src/Warranties.js and recompile.
+
