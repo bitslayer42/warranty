@@ -75,7 +75,15 @@ class Grid extends Component {
                     <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">${warranty[6]}</button></a>
                    </td></tr>)
                 }else{   
-                return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
+                // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
+                return (
+                  <tr key={ix} className="blanktr">
+                  <td>
+                    {this.displayTerm(warranty[1])} 
+                  </td>
+                  <td>
+                    <button type="button" className="cartbutton">N/A</button>
+                   </td></tr>)
                 }
               
               }          
