@@ -1,12 +1,12 @@
 ALTER VIEW MakingMopar AS
 -- Use this to create the data format to use on the website SORT IS IMPORTANT!
 /* 
-select * from MakingMopar
+select * from MakingMopar -- where term = '8/125K' and Class = 'b' And Ded = '200'
 ORDER BY Class, PlanType, CAST(Ded AS INT),
 CAST(dbo.NumericPart(LEFT(Term,CHARINDEX('/',Term))) AS INT),  --years
 CAST(dbo.NumericPart(REPLACE(RIGHT(Term,LEN(Term)-CHARINDEX('/',Term)),'K','')) AS INT)
 */
-SELECT top 100 percent Class, Term, PlanType, CAST(Ded AS INT) Ded, ProdID, WooID, ProdIDS, WooIDS, CAST(Amt AS INT) Amt, CAST(MSRP AS INT) MSRP FROM (
+SELECT top 100 percent Class, Term, PlanType, CAST(Ded AS INT) Ded, ProdID, WooID, ProdIDS, WooIDS, CAST(Amt AS INT) Amt, CAST(MSRP AS INT) MSRP, '' ProdSel, '' WooSel, '' AmtSel FROM (
 	SELECT 'a' AS Class, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(mp.Term,',000 Miles','K'),' ',''),'Years',''),'LifetimeMaximumCare/Cost','LMCC'),'UnlimitedMiles/Cost','UMC') AS Term, 
 	IIF(mp.PlanType='Powertrain Care Plus','PCP',
 	IIF(mp.PlanType='Added Care Plus','ACP',

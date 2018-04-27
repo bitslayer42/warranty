@@ -4,12 +4,13 @@ import Grid from './Grid';
 import './App.css';
 
 const App = ({ deductible, plan, handleChangeDed }) => {
-  let vclass = window.location.search.slice(-3)[0];  //3rd from last char of url: veh class (a,b,c)
-  let gord = window.location.search.slice(-1);  //last char of url: gas or diesel (g or d)
+  let vclass = window.location.search.slice(-5)[0];  //5th from last char of url: veh class (a,b,c)
+  let gord = window.location.search.slice(-3)[0];  //3rd from last char of url: gas or diesel (g or d)
+  let sorn = window.location.search.slice(-1);  //last char of url: surcharge or none (s or n)
   return(
     <div>
     <SelDed deductible={deductible} plan={plan} handleChange={handleChangeDed} />
-    <Grid deductible={deductible} plan={plan} vclass={vclass} gord={gord} />
+    <Grid deductible={deductible} plan={plan} vclass={vclass} gord={gord} sorn={sorn} />
     </div>
   )
 }
