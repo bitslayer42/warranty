@@ -21,3 +21,12 @@ button {
   border-top:1px solid rgb(121, 119, 119); 
   border-bottom:1px solid rgb(121, 119, 119);
 }
+span.whypay {
+  color:rgb(163, 163, 163);
+  text-decoration: line-through;
+  position:relative; 
+  right: 10px;
+}
+span.yourprice {
+  font-size:1.2em;
+}

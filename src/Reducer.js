@@ -5,14 +5,21 @@
 //   visibilityFilter
 // })
 
-const Reducer = (state = {deductible: "100"}, action) => { //console.log('in Reducer',action);
+const Reducer = (state = {deductible: "100", modal: false}, action) => { //console.log('in Reducer',action);
   switch (action.type) {
     case 'SETDED':
       return (
         {
-          deductible: action.ded
+          deductible: action.ded,
+          ...state
         })
-      
+        case 'TOGGLEMODAL':
+        return (
+          {
+            modal: !state.modal,
+            ...state
+          })
+                
     default:
       return state;
   }

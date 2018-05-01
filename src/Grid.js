@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Grid.css';
 import Warranties from './Warranties';
+
 // Warranties: [ [Class, Term, Plan, Ded, ProdId, WooId, ProdIdS, WooIdS, Amt,  MSRP, ProdSel, WooSel, AmtSel] ] (WooID=variation)
 //             [ [A,     5/50, PCP,  100, XXX,    X45,   XXY,     X46,    1000, 2000, XXY,     X45,    1000  ] ]
 //             [ [0      1     2     3    4       5      6        7       8     9     10       11      12    ] ]
@@ -91,10 +92,16 @@ class Grid extends Component {
                 return (
                   <tr key={ix} className="gridtr">
                   <td>
+                    <div>
                     {this.displayTerm(warranty[1])} 
+                    </div>
+                    <span className="whypay">${warranty[9]}</span>
+                    <span className="yourprice">${warranty[12]}</span>
                   </td>
                   <td>
-                    <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">${warranty[12]}</button></a> 
+                    <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
+                    <button className="moreinfo" onClick={this.props.openModal}>More Info >
+                    </button> 
                    </td></tr>)
                 }else{   
                 // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
