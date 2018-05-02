@@ -112,14 +112,22 @@ openModal(warranty){
                     </div>
                    </td></tr>)
                 }else{   
-                return (
-                  <tr key={ix} className="blanktr">
-                  <td>
-                    {this.displayTerm(warranty[1])} 
-                  </td>
-                  <td>
+                  return (
+                    <tr key={ix} className="blanktr">
+                    <td>
+                    <div>
+                      {this.displayTerm(warranty[1])} 
+                      </div>
+                      <span>&nbsp;</span>
+                      <span>&nbsp;</span>                    
+                    </td>
+                    <td>
                     <button type="button" className="cartbutton">N/A</button>
-                   </td></tr>)
+                      <div>
+                      <div>&nbsp;</div> 
+                      </div>                    
+                      
+                     </td></tr>)
                 }
               
               }          
