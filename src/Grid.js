@@ -88,14 +88,21 @@ class Grid extends Component {
           {this.state.ChosenWarranties
             .map((warranty,ix)=>{
                 if(warranty[8]!=="0"){  //[8] is the original amount before surcharge, if zero, not available
-                return (
-                  <tr key={ix} className="gridtr">
-                  <td>
-                    {this.displayTerm(warranty[1])} 
-                  </td>
-                  <td>
-                    <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">${warranty[12]}</button></a> 
-                   </td></tr>)
+                  return (
+                    <tr key={ix} className="gridtr">
+                    <td>
+                      <div>
+                      {this.displayTerm(warranty[1])} 
+                      </div>
+                      <span className="whypay">${warranty[9]}</span>
+                      <span className="yourprice">${warranty[12]}</span>
+                    </td>
+                    <td>
+                      <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
+                      <div>
+                      <a className="fancybox-iframe" href="https://www.google.com">More Info ></a> 
+                      </div>
+                     </td></tr>)
                 }else{   
                 // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
                 return (
