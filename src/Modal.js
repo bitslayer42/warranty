@@ -1,5 +1,6 @@
 import React from 'react';
 import './Modal.css';
+import ModalContent from './ModalContent';
 
 class Modal extends React.Component {
   render() {
@@ -7,7 +8,6 @@ class Modal extends React.Component {
     if(this.props.show==='') {
       return null;
     }
-
     // The gray background
     const backdropStyle = {
       position: 'fixed',
@@ -32,10 +32,10 @@ class Modal extends React.Component {
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-          {this.props.children}
+          <ModalContent show={this.props.show}/>
 
           <div className="footer">
-            <button onClick={this.props.onClose}>
+            <button onClick={this.props.onClose} style={{right:0,bottom:0}}>
               Close
             </button>
           </div>

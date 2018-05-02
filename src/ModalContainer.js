@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
 import Modal from './Modal';
 
-function SETMODAL(event) {
-  const whichModal = event.target.value;
-  return { type: 'SETMODAL', whichModal }
+function SetModal() {
+  return { type: 'SETMODAL', whichModal:'' }
 }
 
 const mapStateToProps = (state, ownProps) => ({ 
@@ -12,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = {
-  onClose: SETMODAL
+  onClose: SetModal
 }
 
 const ModalContainer = connect(

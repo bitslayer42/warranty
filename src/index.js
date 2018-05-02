@@ -41,7 +41,7 @@ ReactDOM.render(
 );
 ReactDOM.render(
   <Provider store={store}>
-    <ModalContainer >Amazing Content 1!!</ModalContainer>
+    <ModalContainer />
   </Provider>, 
   document.getElementById('MODAL')
 );
