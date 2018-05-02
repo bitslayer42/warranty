@@ -8,7 +8,7 @@ button {
   margin-top: 5px;
   margin-bottom: 5px;
   cursor: pointer;
-  width:100%;
+  width:90px;
 }
 .gridtr td{
   text-align:right;
@@ -24,8 +24,6 @@ button {
 span.whypay {
   color:rgb(163, 163, 163);
   text-decoration: line-through;
-  position:relative; 
-  right: 10px;
 }
 span.yourprice {
   font-size:1.2em;

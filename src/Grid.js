@@ -100,8 +100,9 @@ class Grid extends Component {
                   </td>
                   <td>
                     <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
-                    <button className="moreinfo" onClick={this.props.openModal}>More Info >
-                    </button> 
+                    <div>
+                    <a className="moreinfo" href="moreinfo" onClick={this.props.openModal}>More Info ></a> 
+                    </div>
                    </td></tr>)
                 }else{   
                 // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
