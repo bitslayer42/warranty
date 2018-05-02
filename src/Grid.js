@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Grid.css';
 import Warranties from './Warranties';
 
-// Warranties: [ [Class, Term, Plan, Ded, ProdId, WooId, ProdIdS, WooIdS, Amt,  MSRP, ProdSel, WooSel, AmtSel] ] (WooID=variation)
-//             [ [A,     5/50, PCP,  100, XXX,    X45,   XXY,     X46,    1000, 2000, XXY,     X45,    1000  ] ]
-//             [ [0      1     2     3    4       5      6        7       8     9     10       11      12    ] ]
+// Warranties: [ [Class, Term, Plan, Ded, ProdId, WooId, ProdIdS, WooIdS, Amt,  MSRP, ProdSel, WooSel, AmtSel, MSRPSel] ] (WooID=variation)
+//             [ [A,     5/50, PCP,  100, XXX,    X45,   XXY,     X46,    1000, 2000, XXY,     X45,    1000,   1150   ] ]
+//             [ [0      1     2     3    4       5      6        7       8     9     10       11      12      13     ] ]
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +31,7 @@ class Grid extends Component {
           eachrow[10] = eachrow[6];  //ProdSel = ProdIdS
           eachrow[11] = eachrow[7];  //WooSel  = WooIdS
           eachrow[12] = parseInt(eachrow[8],10) + 150; //AmtSel
+          eachrow[13] = parseInt(eachrow[9],10) + 150;  //MSRPSel
           acc.push(eachrow);
           return acc;
       },[]);
@@ -39,6 +40,7 @@ class Grid extends Component {
         eachrow[10] = eachrow[4];  //ProdSel = ProdId
         eachrow[11] = eachrow[5];  //WooSel  = WooId
         eachrow[12] = eachrow[8];  //AmtSel
+        eachrow[13] = eachrow[9];  //MSRPSel
         acc.push(eachrow);
         return acc;
     },[]);    
@@ -100,7 +102,7 @@ openModal(warranty){
                     <div>
                     {this.displayTerm(warranty[1])} 
                     </div>
-                    <span className="whypay">MSRP ${warranty[9]}</span>
+                    <span className="whypay">${warranty[13]}</span>
                     <span className="yourprice">${warranty[12]}</span>
                   </td>
                   <td>
