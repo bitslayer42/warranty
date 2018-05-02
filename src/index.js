@@ -43,5 +43,5 @@ ReactDOM.render(
   <Provider store={store}>
     <ModalContainer />
   </Provider>, 
-  document.getElementById('MODAL')
+  document.getElementById('INFOBOX')
 );
