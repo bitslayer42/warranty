@@ -18,15 +18,23 @@ class Modal extends React.Component {
       backgroundColor: 'rgba(0,0,0,0.3)',
       padding: 50
     };
-
-    // The modal "window"
     const modalStyle = {
       backgroundColor: '#fff',
       borderRadius: 5,
       maxWidth: 500,
       minHeight: 300,
       margin: '0 auto',
-      padding: 30
+      padding: 30,
+      position: 'relative'
+    };
+    const closeStyle = {
+      position: "absolute",
+      right:10,
+      top:10,
+      color: 'blue',
+      textDecoration: 'underline',
+      cursor: 'pointer'
+      
     };
 
     return (
@@ -34,10 +42,8 @@ class Modal extends React.Component {
         <div className="modal" style={modalStyle}>
           <ModalContent show={this.props.show}/>
 
-          <div className="footer">
-            <button onClick={this.props.onClose} style={{right:0,bottom:0}}>
+          <div className="footer" onClick={this.props.onClose} style={closeStyle}>
               Close
-            </button>
           </div>
         </div>
       </div>

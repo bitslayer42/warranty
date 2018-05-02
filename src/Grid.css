@@ -28,3 +28,9 @@ span.whypay {
 span.yourprice {
   font-size:1.2em;
 }
+div.moreinfo {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9em;
+}

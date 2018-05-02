@@ -80,9 +80,8 @@ class Grid extends Component {
     + "&add-to-cart=" + warranty[10];
   }
 ///////////////////////////////////////////////////////////////
-openModal(event){
-  event.preventDefault();
-  this.props.openModal(this.props.plan);
+openModal(warranty){
+  this.props.openModal(warranty[2]); //(this.props.plan);
 }
 ///////////////////////////////////////////////////////////////
   render() { 
@@ -107,11 +106,10 @@ openModal(event){
                   <td>
                     <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
                     <div>
-                    <a className="moreinfo" href="moreinfo" onClick={this.openModal}>More Info ></a> 
+                    <div className="moreinfo" onClick={()=>this.openModal(warranty)}>More Info ></div> 
                     </div>
                    </td></tr>)
                 }else{   
-                // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
                 return (
                   <tr key={ix} className="blanktr">
                   <td>
