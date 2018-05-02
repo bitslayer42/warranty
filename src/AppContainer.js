@@ -6,20 +6,18 @@ function changeDed(event) {
   return { type: 'SETDED', ded }
 }
 
-function toggleModal(event) {
-
-  return { type: 'TOGGLEMODAL' }
+function openModal(whichModal) {
+  return { type: 'SETMODAL', whichModal }
 }
 
 const mapStateToProps = (state, ownProps) => ({ 
   deductible: state.deductible,
-  modal: state.modal,
   ownProps
 })
 
 const mapDispatchToProps = {
   handleChangeDed: changeDed,
-  handleToggleModal: toggleModal
+  handleOpenModal: openModal
 }
 
 const AppContainer = connect(

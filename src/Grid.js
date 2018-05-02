@@ -13,6 +13,7 @@ class Grid extends Component {
       ChosenWarranties: [],
       None: false
     };
+    this.openModal = this.openModal.bind(this);
   }    
 ///////////////////////////////////////////////////////////////
   static getDerivedStateFromProps(nextProps, prevState){
@@ -79,6 +80,11 @@ class Grid extends Component {
     + "&add-to-cart=" + warranty[10];
   }
 ///////////////////////////////////////////////////////////////
+openModal(event){
+  event.preventDefault();
+  this.props.openModal(this.props.plan);
+}
+///////////////////////////////////////////////////////////////
   render() { 
     const ret = this.state.None
     ? <div style={{marginBottom:"20px"}}>No plans available for this selection.</div>
@@ -95,13 +101,13 @@ class Grid extends Component {
                     <div>
                     {this.displayTerm(warranty[1])} 
                     </div>
-                    <span className="whypay">${warranty[9]}</span>
+                    <span className="whypay">MSRP ${warranty[9]}</span>
                     <span className="yourprice">${warranty[12]}</span>
                   </td>
                   <td>
                     <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
                     <div>
-                    <a className="moreinfo" href="moreinfo" onClick={this.props.openModal}>More Info ></a> 
+                    <a className="moreinfo" href="moreinfo" onClick={this.openModal}>More Info ></a> 
                     </div>
                    </td></tr>)
                 }else{   
