@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const deductible = (state = "100", action) => { //console.log('in Reducer',action);
+const deductible = (state = "200", action) => { //console.log('in Reducer',action);
   switch (action.type) {
     case 'SETDED':
       return action.ded       

@@ -23,8 +23,8 @@ class ModalContent extends React.Component {
             <ul>
             <li>First Day Rental</li>
             <li>Car Rental Allowance</li>
-            <li>$100 Towing / Roadside Assistance</li>
-            <li>$1000 Trip Interruption Protection</li>
+            <li>100 Dollar Towing / Roadside Assistance</li>
+            <li>1000 Dollar Trip Interruption Protection</li>
             <li>Mopar Geniune Parts Replacement</li>
             </ul> 
         </div>)
@@ -54,8 +54,8 @@ class ModalContent extends React.Component {
                 <ul>
                 <li>First Day Rental</li>
                 <li>Car Rental Allowance</li>
-                <li>$100 Towing / Roadside Assistance</li>
-                <li>$1000 Trip Interruption Protection</li>
+                <li>100 Dollar Towing / Roadside Assistance</li>
+                <li>1000 Dollar Trip Interruption Protection</li>
                 <li>Mopar Geniune Parts Replacement</li>
                 </ul>                 
             </div>)
@@ -82,8 +82,8 @@ class ModalContent extends React.Component {
                 <ul>
                 <li>First Day Rental</li>
                 <li>Car Rental Allowance</li>
-                <li>$100 Towing / Roadside Assistance</li>
-                <li>$1000 Trip Interruption Protection</li>
+                <li>100 Dollar Towing / Roadside Assistance</li>
+                <li>1000 Dollar Trip Interruption Protection</li>
                 <li>Mopar Geniune Parts Replacement</li>
                 </ul>             
         </div>)
@@ -110,8 +110,8 @@ class ModalContent extends React.Component {
                 <ul>
                 <li>First Day Rental</li>
                 <li>Car Rental Allowance</li>
-                <li>$100 Towing / Roadside Assistance</li>
-                <li>$1000 Trip Interruption Protection</li>
+                <li>100 Dollar Towing / Roadside Assistance</li>
+                <li>1000 Dollar Trip Interruption Protection</li>
                 <li>Mopar Geniune Parts Replacement</li>
                 </ul> 
         </div>)
@@ -138,8 +138,8 @@ class ModalContent extends React.Component {
                 <ul>
                 <li>First Day Rental</li>
                 <li>Car Rental Allowance</li>
-                <li>$100 Towing / Roadside Assistance</li>
-                <li>$1000 Trip Interruption Protection</li>
+                <li>100 Dollar Towing / Roadside Assistance</li>
+                <li>1000 Dollar Trip Interruption Protection</li>
                 <li>Mopar Geniune Parts Replacement</li>
                 </ul> 
         </div>)

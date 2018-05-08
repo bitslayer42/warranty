@@ -1,7 +1,8 @@
 .switch-field {
     font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
     padding: 5px;
-      overflow: hidden;
+    overflow: hidden;
+    text-align: center;
   }
   
   .switch-title {
@@ -56,4 +57,11 @@
   
   .switch-field label:last-of-type {
     border-radius: 0 4px 4px 0;
+  }
+    
+  .switch-field label.justOneButton {
+    border-radius: 4px;
+    background-color: #4b8ecc; /*82a8ca*/
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
