@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Grid.css';
 import Warranties from './Warranties';
-// Warranties: [ [Class, Term, Plan, Ded, ProdId, WooId, ProdIdS, WooIdS, Amt,  MSRP, ProdSel, WooSel, AmtSel] ] (WooID=variation)
-//             [ [A,     5/50, PCP,  100, XXX,    X45,   XXY,     X46,    1000, 2000, XXY,     X45,    1000  ] ]
-//             [ [0      1     2     3    4       5      6        7       8     9     10       11      12    ] ]
+
+// Warranties: [ [Class, Term, Plan, Ded, ProdId, WooId, ProdIdS, WooIdS, Amt,  MSRP, ProdSel, WooSel, AmtSel, MSRPSel] ] (WooID=variation)
+//             [ [A,     5/50, PCP,  100, XXX,    X45,   XXY,     X46,    1000, 2000, XXY,     X45,    1000,   1150   ] ]
+//             [ [0      1     2     3    4       5      6        7       8     9     10       11      12      13     ] ]
 class Grid extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ class Grid extends Component {
       ChosenWarranties: [],
       None: false
     };
+    this.openModal = this.openModal.bind(this);
   }    
 ///////////////////////////////////////////////////////////////
   static getDerivedStateFromProps(nextProps, prevState){
@@ -29,6 +31,7 @@ class Grid extends Component {
           eachrow[10] = eachrow[6];  //ProdSel = ProdIdS
           eachrow[11] = eachrow[7];  //WooSel  = WooIdS
           eachrow[12] = parseInt(eachrow[8],10) + 150; //AmtSel
+          eachrow[13] = parseInt(eachrow[9],10) + 150;  //MSRPSel
           acc.push(eachrow);
           return acc;
       },[]);
@@ -37,6 +40,7 @@ class Grid extends Component {
         eachrow[10] = eachrow[4];  //ProdSel = ProdId
         eachrow[11] = eachrow[5];  //WooSel  = WooId
         eachrow[12] = eachrow[8];  //AmtSel
+        eachrow[13] = eachrow[9];  //MSRPSel
         acc.push(eachrow);
         return acc;
     },[]);    
@@ -78,6 +82,10 @@ class Grid extends Component {
     + "&add-to-cart=" + warranty[10];
   }
 ///////////////////////////////////////////////////////////////
+openModal(warranty){
+  this.props.openModal(warranty[2]); //(this.props.plan);
+}
+///////////////////////////////////////////////////////////////
   render() { 
     const ret = this.state.None
     ? <div style={{marginBottom:"20px"}}>No plans available for this selection.</div>
@@ -88,31 +96,38 @@ class Grid extends Component {
           {this.state.ChosenWarranties
             .map((warranty,ix)=>{
                 if(warranty[8]!=="0"){  //[8] is the original amount before surcharge, if zero, not available
-                  return (
-                    <tr key={ix} className="gridtr">
-                    <td>
-                      <div>
-                      {this.displayTerm(warranty[1])} 
-                      </div>
-                      <span className="whypay">${warranty[9]}</span>
-                      <span className="yourprice">${warranty[12]}</span>
-                    </td>
-                    <td>
-                      <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
-                      <div>
-                      <a className="fancybox-iframe" href="https://www.google.com">More Info ></a> 
-                      </div>
-                     </td></tr>)
-                }else{   
-                // return ( <tr key={ix} className="blanktr"><td colSpan="2" ><button style={{visibility: "hidden"}} >TEXT</button></td></tr> )
                 return (
-                  <tr key={ix} className="blanktr">
+                  <tr key={ix} className="gridtr">
                   <td>
+                    <div>
                     {this.displayTerm(warranty[1])} 
+                    </div>
+                    <span className="whypay">${warranty[13]}</span>
+                    <span className="yourprice">${warranty[12]}</span>
                   </td>
                   <td>
-                    <button type="button" className="cartbutton">N/A</button>
+                    <a href={this.buildURL(warranty)} ><button type="button" className="cartbutton">Add to Cart</button></a>
+                    <div>
+                    <div className="moreinfo" onClick={()=>this.openModal(warranty)}>More Info ></div> 
+                    </div>
                    </td></tr>)
+                }else{   
+                  return (
+                    <tr key={ix} className="blanktr">
+                    <td>
+                    <div>
+                      {this.displayTerm(warranty[1])} 
+                      </div>
+                      <span>&nbsp;</span>
+                      <span>&nbsp;</span>                    
+                    </td>
+                    <td>
+                    <button type="button" className="cartbutton">N/A</button>
+                      <div>
+                      <div>&nbsp;</div> 
+                      </div>                    
+                      
+                     </td></tr>)
                 }
               
               }          

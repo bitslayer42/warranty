@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import './index.css';
 import AppContainer from './AppContainer';
+import ModalContainer from './ModalContainer';
 import Reducer from './Reducer';
 import { createStore } from 'redux';
 
@@ -37,4 +38,10 @@ ReactDOM.render(
     <AppContainer plan="LP"/>
   </Provider>, 
   document.getElementById('LP')
+);
+ReactDOM.render(
+  <Provider store={store}>
+    <ModalContainer />
+  </Provider>, 
+  document.getElementById('INFOBOX')
 );
