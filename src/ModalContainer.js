@@ -15,8 +15,8 @@ const mapDispatchToProps = {
 }
 
 const ModalContainer = connect(
-  mapStateToProps,    //Modal prop: deductible
-  mapDispatchToProps  //Modal prop: handleChangeDed
+  mapStateToProps,    //Modal prop: show
+  mapDispatchToProps  //Modal prop: onClose
 )(Modal)
 
 export default ModalContainer;

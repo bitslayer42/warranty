@@ -2,6 +2,7 @@ import React from 'react';
 import ModalContent from './ModalContent';
 
 class Modal extends React.Component {
+  dontClose = (e)=>{e.stopPropagation()};
   render() {
     // Render nothing if the "show" prop is empty
     if(this.props.show==='') {
@@ -15,16 +16,18 @@ class Modal extends React.Component {
       left: 0,
       right: 0,
       backgroundColor: 'rgba(0,0,0,0.3)',
-      padding: 50
+      paddingTop: 50
     };
     const modalStyle = {
       backgroundColor: '#fff',
       borderRadius: 5,
       maxWidth: 500,
-      //minHeight: 300,
+      minHeight: 300,
       margin: '0 auto',
       padding: 30,
-      position: 'relative'
+      position:'relative',
+      maxHeight: 'calc(100vh - 210px)',
+      overflowY: 'auto'
     };
     const closeStyle = {
       position: "absolute",
@@ -37,9 +40,9 @@ class Modal extends React.Component {
     };
 
     return (
-      <div className="backdrop" style={backdropStyle}>
-        <div className="modal" style={modalStyle}>
-          <ModalContent show={this.props.show} />
+      <div className="backdrop" style={backdropStyle} onClick={this.props.onClose}>
+        <div className="modal" style={modalStyle}  onClick={this.dontClose}>
+          <ModalContent show={this.props.show}/>
 
           <div className="footer" onClick={this.props.onClose} style={closeStyle}>
               Close
