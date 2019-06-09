@@ -6,3 +6,7 @@ After uploading, install nodejs and recompile:
 npm install
 npm run build
 
+To test:
+npm start
+http://localhost:3000/choose/?class=a-g-s
+
